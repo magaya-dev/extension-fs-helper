@@ -49,7 +49,7 @@ function GetExtensionDataFolder(extensionId, networkID){
     if (!networkID)   
         throw new Error('Please specify Communication Suite NetworkId that this extension belongs to.');
 
-    let currentFolder = GetExtensionFolder(path.join(nodeFolder, '..'), extensionId);
+    let currentFolder = GetExtensionFolder(nodeFolder, extensionId);
     if (!fs.existsSync(currentFolder))
         currentFolder = nodeFolder;
     let upFolder = path.join(currentFolder, '..');
