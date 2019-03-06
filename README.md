@@ -15,5 +15,5 @@ myExtensionDataFolder = util.GetExtensionDataFolder(extJson.id, networkId);
 
 ```
 
-Warning:
+Warning :warning::
 Do no keep extension.config.json on Git Repository because this could cause the path created inside the extemsion. If you want to have this file on the Repository, please rename it.
