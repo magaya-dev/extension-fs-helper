@@ -49,7 +49,7 @@ function GetExtensionDataFolder(extensionId, networkID){
         throw new Error('Please specify Communication Suite NetworkId that this extension belongs to.');
 
     let currentFolder = GetExtensionFolder(nodeFolder, extensionId);
-    if (!isExtensionConfig(path.join(currentFolder,'\\extension.config.json')))
+    if (!isExtensionConfig(path.join(currentFolder,'\\extension.config.json'), extensionId))
         currentFolder = nodeFolder;
     let upFolder = path.join(currentFolder, '..');
     upFolderName = path.basename(upFolder);
