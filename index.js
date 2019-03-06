@@ -14,8 +14,7 @@ function isExtensionConfig(result, extensionId) {
 
 function GetExtensionFolder(currentFolder, extensionId) {
     let result =  currentFolder;
-    let extConfigFile = currentFolder + '\\extension.config.json';
-    while (!isExtensionConfig(extConfigFile, extensionId)) {
+    while (!isExtensionConfig(result + '\\extension.config.json', extensionId)) {
         let upFolder = path.join(currentFolder, '..');
         if (upFolder != currentFolder) {
             result = upFolder;
