@@ -15,8 +15,8 @@ function isExtensionConfig(result, extensionId) {
 function GetExtensionFolder(currentFolder, extensionId) {
     let result =  currentFolder;
     while (!isExtensionConfig(result + '\\extension.config.json', extensionId)) {
-        let upFolder = path.join(currentFolder, '..');
-        if (upFolder != currentFolder) {
+        let upFolder = path.join(result, '..');
+        if (upFolder != result) {
             result = upFolder;
         }
         else
@@ -49,7 +49,7 @@ function GetExtensionDataFolder(extensionId, networkID){
         throw new Error('Please specify Communication Suite NetworkId that this extension belongs to.');
 
     let currentFolder = GetExtensionFolder(nodeFolder, extensionId);
-    if (!fs.existsSync(currentFolder))
+    if (!isExtensionConfig(path.join(currentFolder,'\\extension.config.json')))
         currentFolder = nodeFolder;
     let upFolder = path.join(currentFolder, '..');
     upFolderName = path.basename(upFolder);
