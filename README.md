@@ -7,10 +7,10 @@ For this package to work an extension.config.json file must be present with vali
 
 **usage**
 
-<source lang="js">
-
-const util = require('@magaya/extension-fs-helper');
+# const util = require('@magaya/extension-fs-helper');
 
 myExtensionDataFolder = util.GetExtensionDataFolder(extJson.id, networkId);
 
+
+<source lang="js">
 </source>
