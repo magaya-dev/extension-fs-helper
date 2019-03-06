@@ -15,6 +15,6 @@ myExtensionDataFolder = util.GetExtensionDataFolder(extJson.id, networkId);
 
 ```
 
-:point_right: **Important**
+**Important:** 
 
-Add extension.config.json file to gitignore so it won't be downloaded to your Magaya installation duplicated. If you want to have extension.config.json file on the Repository, please rename it.
+:point_right: Add extension.config.json file to gitignore so it won't be downloaded to your Magaya installation duplicated. If you want to have extension.config.json file on the Repository, please rename it.
