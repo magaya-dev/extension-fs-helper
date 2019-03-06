@@ -5,12 +5,15 @@ This package is designed to create a folder for extension persistent data (confi
 
 For this package to work an extension.config.json file must be present with valid id property, also Magaya networkId should be sent as a parameter to the function that creates or retrives the extension data folder.
 
-**usage**
+**usage:**
+
+```javascript
 
 const util = require('@magaya/extension-fs-helper');
 
 myExtensionDataFolder = util.GetExtensionDataFolder(extJson.id, networkId);
 
+```
 
-<source lang="js">
-</source>
+Warning:
+Do no keep extension.config.json on Git Repository because this could cause the path created inside the extemsion. If you want to have this file on the Repository, please rename it.
