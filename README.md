@@ -15,6 +15,6 @@ myExtensionDataFolder = util.GetExtensionDataFolder(extJson.id, networkId);
 
 ```
 
-:warning: **Warning :**
+:point_right: **Important**
 
-Do no keep extension.config.json file on Git Repository because this could cause that the path was created inside the extension. If you want to have this file on the Repository, please rename it.
+Add extension.config.json file to gitignore so it won't be downloaded to your Magaya installation duplicated. If you want to have extension.config.json file on the Repository, please rename it.
