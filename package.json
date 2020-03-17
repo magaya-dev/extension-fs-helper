@@ -1,6 +1,6 @@
 {
   "name": "@magaya/extension-fs-helper",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Helper package to manage local data for Magaya Extensions",
   "main": "index.js",
   "scripts": {
