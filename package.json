@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/magaya-dev/extension-fs-helper/issues"
   },
-  "homepage": "https://github.com/magaya-dev/extension-fs-helper#readme"
+  "homepage": "https://github.com/magaya-dev/extension-fs-helper#readme",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
 }
