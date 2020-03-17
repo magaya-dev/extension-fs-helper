@@ -15,6 +15,9 @@ const EXT_DATA_DIRNAME = 'extensions-data';
  * @returns {Promise<string>} Path to extension folder
  */
 async function GetExtensionFolderAsync (extensionId) {
+    if (!extensionId || !extensionId.name || !extensionId.company) 
+        throw new Error(`Invalid extension id arg: ${extensionId}`);
+        
     const cwd = process.cwd();
     let current = cwd;
 
@@ -23,8 +26,7 @@ async function GetExtensionFolderAsync (extensionId) {
         if (up !== current) {
             current = up;
         } else {
-            // got to fs root without finding ext config file.
-            // falling back to process.cwd()
+            console.log(`[extension-fs-helper] Got to file system root without finding extension folder. Falling back to cwd.`);
             return cwd;
         } 
     }
@@ -42,6 +44,9 @@ async function GetExtensionFolderAsync (extensionId) {
  * @returns {string} Path to extension folder
  */
 function GetExtensionFolder (extensionId) {
+    if (!extensionId || !extensionId.name || !extensionId.company) 
+        throw new Error(`Invalid extension id arg: ${extensionId}`);
+
     const cwd = process.cwd();
     let current = cwd;
 
@@ -50,8 +55,7 @@ function GetExtensionFolder (extensionId) {
         if (up !== current) {
             current = up;
         } else {
-            // got to fs root without finding ext config file.
-            // falling back to process.cwd()
+            console.log(`[extension-fs-helper] Got to file system root without finding extension folder. Falling back to cwd.`);
             return cwd;
         } 
     }
@@ -70,6 +74,9 @@ function GetExtensionFolder (extensionId) {
  * @returns {Promise<Object>} Extension configuration object.
  */
 async function GetExtensionConfigAsync (extensionId) {
+    if (!extensionId || !extensionId.name || !extensionId.company) 
+        throw new Error(`Invalid extension id arg: ${extensionId}`);
+
     const folder = await GetExtensionFolderAsync(extensionId);
     const file = path.join(folder, EXT_CONFIG_FILENAME);
 
@@ -80,6 +87,7 @@ async function GetExtensionConfigAsync (extensionId) {
         return config;        
     }
 
+    console.log(`[extension-fs-helper] Missing ${EXT_CONFIG_FILENAME} for ${extensionId.company}-${extensionId.name}`);
     return null;
 }
 
@@ -92,6 +100,9 @@ async function GetExtensionConfigAsync (extensionId) {
  * @returns {Object} Extension configuration object.
  */
 function GetExtensionConfig (extensionId) {
+    if (!extensionId || !extensionId.name || !extensionId.company) 
+        throw new Error(`Invalid extension id arg: ${extensionId}`);
+
     const folder = GetExtensionFolder(extensionId);
     const file = path.join(folder, EXT_CONFIG_FILENAME);
 
@@ -102,6 +113,7 @@ function GetExtensionConfig (extensionId) {
         return config;        
     }
 
+    console.log(`[extension-fs-helper] Missing ${EXT_CONFIG_FILENAME} for ${extensionId.company}-${extensionId.name}`);
     return null;
 }
 
